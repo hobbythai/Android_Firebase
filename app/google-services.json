@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "555073168301",
+    "firebase_url": "https://fir-kul.firebaseio.com",
+    "project_id": "fir-kul",
+    "storage_bucket": "fir-kul.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:555073168301:android:4a9bdce5ef28ba44",
+        "android_client_info": {
+          "package_name": "com.hobbythai.android.firebasekul"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "555073168301-ssieuatecqd9st1p4f28jmnduj4ce8ti.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hobbythai.android.firebasekul",
+            "certificate_hash": "55032a030c5020ec9e058d71658cbd2712886c6e"
+          }
+        },
+        {
+          "client_id": "555073168301-qoi1qcnog3mf8bmf9buk32o093ncv2bu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuzDBpAK28N3q2Aurn4EgtXLAQCsf_KjQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "555073168301-qoi1qcnog3mf8bmf9buk32o093ncv2bu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

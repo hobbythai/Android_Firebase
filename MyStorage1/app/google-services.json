@@ -1,0 +1,187 @@
+{
+  "project_info": {
+    "project_number": "31085679820",
+    "firebase_url": "https://hbt-db.firebaseio.com",
+    "project_id": "hbt-db",
+    "storage_bucket": "hbt-db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:31085679820:android:9627252288a1062d",
+        "android_client_info": {
+          "package_name": "com.hobbythai.android.myfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "31085679820-usatoiq5880pie24eluchpin15b1s0su.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hobbythai.android.myfirebase",
+            "certificate_hash": "55032a030c5020ec9e058d71658cbd2712886c6e"
+          }
+        },
+        {
+          "client_id": "31085679820-af1qlk25554qi0earunvh43l0hoir13v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkeBgT-F_03BuHlz_qGGJ4s0DkaHQZDoA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "31085679820-af1qlk25554qi0earunvh43l0hoir13v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:31085679820:android:82e52cce85f5cdc5",
+        "android_client_info": {
+          "package_name": "com.hobbythai.android.gpsreceiver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "31085679820-dd1qt97vqf9cev1umvm0dedrfr926c4c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hobbythai.android.gpsreceiver",
+            "certificate_hash": "55032a030c5020ec9e058d71658cbd2712886c6e"
+          }
+        },
+        {
+          "client_id": "31085679820-af1qlk25554qi0earunvh43l0hoir13v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkeBgT-F_03BuHlz_qGGJ4s0DkaHQZDoA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "31085679820-af1qlk25554qi0earunvh43l0hoir13v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:31085679820:android:e830db5853c57ff5",
+        "android_client_info": {
+          "package_name": "com.hobbythai.android.gpssender"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "31085679820-82fm1gfsgc6vf5p4mbfr6hi16jlsmf09.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hobbythai.android.gpssender",
+            "certificate_hash": "55032a030c5020ec9e058d71658cbd2712886c6e"
+          }
+        },
+        {
+          "client_id": "31085679820-af1qlk25554qi0earunvh43l0hoir13v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkeBgT-F_03BuHlz_qGGJ4s0DkaHQZDoA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "31085679820-af1qlk25554qi0earunvh43l0hoir13v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:31085679820:android:9477bc54e9884dc5",
+        "android_client_info": {
+          "package_name": "com.hobbythai.android.mystorage1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "31085679820-hatb3r2fmpc1h28gkqslme272oecbfe0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hobbythai.android.mystorage1",
+            "certificate_hash": "55032a030c5020ec9e058d71658cbd2712886c6e"
+          }
+        },
+        {
+          "client_id": "31085679820-af1qlk25554qi0earunvh43l0hoir13v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkeBgT-F_03BuHlz_qGGJ4s0DkaHQZDoA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "31085679820-af1qlk25554qi0earunvh43l0hoir13v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

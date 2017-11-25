@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1066360655050",
+    "firebase_url": "https://node-170831.firebaseio.com",
+    "project_id": "node-170831",
+    "storage_bucket": "node-170831.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1066360655050:android:b0893c63de7e5524",
+        "android_client_info": {
+          "package_name": "com.hobbythai.android.myfirebase1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1066360655050-srprccvh8aomh4gj70cq4grdeo3n2cc7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hobbythai.android.myfirebase1",
+            "certificate_hash": "55032a030c5020ec9e058d71658cbd2712886c6e"
+          }
+        },
+        {
+          "client_id": "1066360655050-348221tei9ihthhceaou8nnkv93diucg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxMqevN2h_aQQcLZL2Oljp7j-R0AkyuI8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1066360655050-348221tei9ihthhceaou8nnkv93diucg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
