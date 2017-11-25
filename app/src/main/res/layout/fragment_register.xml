@@ -1,17 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <!--Content-->
+    <!--toolbar-->
+    <include layout="@layout/my_toolbar" />
+
+    <!--content-->
     <LinearLayout
         android:background="@drawable/login_masterung"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="@dimen/my_margin"
-        android:layout_marginLeft="@dimen/my_margin"
+        android:layout_margin="@dimen/my_margin"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <!--display name-->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--icon-->
+            <ImageView
+                android:src="@drawable/ic_action_person"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <!--email-->
+            <EditText
+                android:inputType="text"
+                android:hint="Name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
 
         <!--email-->
         <LinearLayout
@@ -46,34 +69,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
-            <!--pass-->
+            <!--email-->
             <EditText
-                android:inputType="textPassword"
+                android:inputType="text"
                 android:hint="@string/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
         </LinearLayout>
 
-        <!--login-->
-        <Button
-            android:text="Login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <!--new register-->
-        <TextView
-            android:textSize="18sp"
-            android:clickable="true"
-            android:id="@+id/txtNewRegister"
-            android:textColor="@color/colorAccent"
-            android:textStyle="italic"
-            android:text="New Register!"
-            android:layout_gravity="center_horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>
