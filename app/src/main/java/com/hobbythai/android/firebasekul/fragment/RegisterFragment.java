@@ -4,11 +4,14 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import com.hobbythai.android.firebasekul.MainActivity;
 import com.hobbythai.android.firebasekul.R;
@@ -19,6 +22,11 @@ import com.hobbythai.android.firebasekul.R;
 
 public class RegisterFragment extends Fragment {
 
+    //explicit
+    private String tag = "25NovV1";
+
+    private String nameString, emailString, passwordString;
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -28,6 +36,33 @@ public class RegisterFragment extends Fragment {
 
         //create menu
         setHasOptionsMenu(true);
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (item.getItemId() == R.id.itemSave) {
+            checkSpace();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void checkSpace() {
+
+        Log.d(tag, "Check Space Work");
+
+        //init view
+        EditText nameEditText = getView().findViewById(R.id.edtName);
+        EditText emailEditText = getView().findViewById(R.id.edtEmail);
+        EditText passwordEditText = getView().findViewById(R.id.edtPassword);
+
+        //get value from editText
+        nameString = nameEditText.getText().toString().trim();
+        emailString=emailEditText.getText().toString().trim();
+        passwordString = passwordEditText.getText().toString().trim();
 
     }
 
@@ -64,6 +99,8 @@ public class RegisterFragment extends Fragment {
                         .popBackStack();
             }
         });
+
+
 
     }
 
