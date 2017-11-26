@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.hobbythai.android.firebasekul.R;
@@ -16,6 +18,9 @@ import com.hobbythai.android.firebasekul.R;
 
 public class MainFragment extends Fragment{
 
+    //explicit
+    private String emailString, passwordString;
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -23,6 +28,27 @@ public class MainFragment extends Fragment{
         //Register controller
         registerController();
 
+        //login controller
+        loginController();
+
+    }
+
+    private void loginController() {
+        Button button = getActivity().findViewById(R.id.btnLogin);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //initial view
+                EditText emailEditText = getView().findViewById(R.id.edtEmail);
+                EditText passwordEditText = getView().findViewById(R.id.edtPassword);
+
+                //get value from edittext
+                emailString = emailEditText.getText().toString().trim();
+                passwordString = passwordEditText.getText().toString().trim();
+
+            }
+        });
     }
 
     private void registerController() {
