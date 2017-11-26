@@ -1,6 +1,8 @@
 package com.hobbythai.android.firebasekul.fragment;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,8 +11,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.hobbythai.android.firebasekul.R;
+import com.hobbythai.android.firebasekul.utility.MyAlertDialog;
 
 /**
  * Created by ks on 11/25/2017 AD.
@@ -47,8 +55,46 @@ public class MainFragment extends Fragment{
                 emailString = emailEditText.getText().toString().trim();
                 passwordString = passwordEditText.getText().toString().trim();
 
+                //check space
+                if (emailString.isEmpty() || passwordString.isEmpty()) {
+                    //empty
+                    MyAlertDialog myAlertDialog = new MyAlertDialog(getActivity());
+                    myAlertDialog.myNormalDialog("Have Space!",
+                            getString(R.string.sub_register));
+                } else {
+                    //ok no space
+                    checkEmailAnPass();
+                }
+
             }
         });
+    }
+
+    private void checkEmailAnPass() {
+        //setup progress dialog
+        final ProgressDialog progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setTitle("Please Wait...");
+        progressDialog.show();
+
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        firebaseAuth.signInWithEmailAndPassword(emailString,passwordString)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+
+                        progressDialog.dismiss();
+
+                        if (task.isSuccessful()) {
+                            //success
+                            Toast.makeText(getActivity(),"Welcome Login OK",Toast.LENGTH_SHORT).show();
+                        } else {
+                            //not success
+                            MyAlertDialog myAlertDialog = new MyAlertDialog(getActivity());
+                            myAlertDialog.myNormalDialog("Authen Error!",
+                                    task.getException().getMessage());
+                        }
+                    }
+                });
     }
 
     private void registerController() {
