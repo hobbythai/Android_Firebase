@@ -15,6 +15,7 @@ import android.widget.EditText;
 
 import com.hobbythai.android.firebasekul.MainActivity;
 import com.hobbythai.android.firebasekul.R;
+import com.hobbythai.android.firebasekul.utility.MyAlertDialog;
 
 /**
  * Created by ks on 11/25/2017 AD.
@@ -61,20 +62,29 @@ public class RegisterFragment extends Fragment {
 
         //get value from editText
         nameString = nameEditText.getText().toString().trim();
-        emailString=emailEditText.getText().toString().trim();
+        emailString = emailEditText.getText().toString().trim();
         passwordString = passwordEditText.getText().toString().trim();
+
+        //check space
+        if (nameString.isEmpty() || emailString.isEmpty() || passwordString.isEmpty()) {
+            //have space
+            MyAlertDialog myAlertDialog = new MyAlertDialog(getActivity());
+            myAlertDialog.myNormalDialog("Have Space",
+                    getString(R.string.sub_register));
+        } else {
+            //no space
+        }
 
     }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 
-        inflater.inflate(R.menu.menu_save,menu);
+        inflater.inflate(R.menu.menu_save, menu);
 
         super.onCreateOptionsMenu(menu, inflater);
 
     }
-
 
 
     private void createToolbar() {
@@ -99,7 +109,6 @@ public class RegisterFragment extends Fragment {
                         .popBackStack();
             }
         });
-
 
 
     }
