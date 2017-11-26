@@ -20,6 +20,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 import com.hobbythai.android.firebasekul.MainActivity;
 import com.hobbythai.android.firebasekul.R;
 import com.hobbythai.android.firebasekul.utility.MyAlertDialog;
@@ -32,14 +34,18 @@ public class RegisterFragment extends Fragment {
 
     //explicit
     private String tag = "25NovV1";
-
     private String nameString, emailString, passwordString;
     private FirebaseAuth firebaseAuth;
     private ProgressDialog progressDialog;
+    private FirebaseUser firebaseUser;
+    private FirebaseDatabase databaseReference;
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        //setup Firebase
+        firebaseAuth = FirebaseAuth.getInstance();
 
         //create toolbar
         createToolbar();
@@ -94,7 +100,6 @@ public class RegisterFragment extends Fragment {
         progressDialog.setTitle("Please Wait...");
         progressDialog.show();
 
-        firebaseAuth = FirebaseAuth.getInstance();
         firebaseAuth.createUserWithEmailAndPassword(emailString, passwordString)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -105,6 +110,9 @@ public class RegisterFragment extends Fragment {
 
                         if (task.isSuccessful()) {
                             //success
+
+                            saveNameDisplayToFirebase();
+
                             Toast.makeText(getActivity(),"Update Firebase Success",
                                     Toast.LENGTH_SHORT).show();
                             //go back
@@ -119,6 +127,20 @@ public class RegisterFragment extends Fragment {
                     }
                 });
 
+    }
+
+    private void saveNameDisplayToFirebase() {
+
+        //get uid
+        firebaseUser = firebaseAuth.getCurrentUser();
+        showLog();
+
+    }
+
+    private void showLog() {
+        String tag = "26NovV1";
+        Log.d(tag, "UID = " + firebaseUser.getUid());
+        Log.d(tag, "Email = " + firebaseUser.getEmail());
     }
 
     @Override

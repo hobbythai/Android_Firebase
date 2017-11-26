@@ -71,6 +71,7 @@ public class MainFragment extends Fragment{
     }
 
     private void checkEmailAnPass() {
+
         //setup progress dialog
         final ProgressDialog progressDialog = new ProgressDialog(getActivity());
         progressDialog.setTitle("Please Wait...");
