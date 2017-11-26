@@ -1,6 +1,8 @@
 package com.hobbythai.android.firebasekul.fragment;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
@@ -12,7 +14,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.hobbythai.android.firebasekul.MainActivity;
 import com.hobbythai.android.firebasekul.R;
 import com.hobbythai.android.firebasekul.utility.MyAlertDialog;
@@ -27,6 +34,8 @@ public class RegisterFragment extends Fragment {
     private String tag = "25NovV1";
 
     private String nameString, emailString, passwordString;
+    private FirebaseAuth firebaseAuth;
+    private ProgressDialog progressDialog;
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -73,7 +82,42 @@ public class RegisterFragment extends Fragment {
                     getString(R.string.sub_register));
         } else {
             //no space
+            updateFirebase();
         }
+
+    }
+
+    private void updateFirebase() {
+
+        //setup progress dialog
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setTitle("Please Wait...");
+        progressDialog.show();
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseAuth.createUserWithEmailAndPassword(emailString, passwordString)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+
+                        //stop dialog
+                        progressDialog.dismiss();
+
+                        if (task.isSuccessful()) {
+                            //success
+                            Toast.makeText(getActivity(),"Update Firebase Success",
+                                    Toast.LENGTH_SHORT).show();
+                            //go back
+                            getActivity().getSupportFragmentManager().popBackStack();
+                        } else {
+                            //not success
+                            MyAlertDialog myAlertDialog = new MyAlertDialog(getActivity());
+                            myAlertDialog.myNormalDialog("Can't Update Firebase",
+                                    task.getException().getMessage());
+                        }
+
+                    }
+                });
 
     }
 
