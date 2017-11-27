@@ -8,9 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.hobbythai.android.firebasekul.R;
+
+import java.util.Map;
 
 /**
  * Created by ks on 11/26/2017 AD.
@@ -21,7 +26,7 @@ public class SeviceFragment extends Fragment {
     //explicit
     private String tag = "26NovV3";
     private String uidString;
-    private DatabaseReference databaseReference;
+//    private DatabaseReference databaseReference;
     private String nameDisplayString;
 
     public static SeviceFragment seviceInstance(String strID) {
@@ -43,8 +48,25 @@ public class SeviceFragment extends Fragment {
         Log.d(tag, "Recieve UID = " + uidString);
 
         //find name display
-        databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+//        databaseReference = FirebaseDatabase.getInstance().getReference("Users");
 
+        //test
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference reference = database.getReference();
+
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Map map = (Map) dataSnapshot.getValue();
+                nameDisplayString = map.get(uidString).toString();
+                Log.d(tag, "Name Data = " + nameDisplayString);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
     }
 
