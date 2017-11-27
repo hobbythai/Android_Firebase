@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.hobbythai.android.firebasekul.R;
 import com.hobbythai.android.firebasekul.utility.MyAlertDialog;
 
@@ -24,7 +26,7 @@ import com.hobbythai.android.firebasekul.utility.MyAlertDialog;
  * Created by ks on 11/25/2017 AD.
  */
 
-public class MainFragment extends Fragment{
+public class MainFragment extends Fragment {
 
     //explicit
     private String emailString, passwordString;
@@ -78,7 +80,7 @@ public class MainFragment extends Fragment{
         progressDialog.show();
 
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-        firebaseAuth.signInWithEmailAndPassword(emailString,passwordString)
+        firebaseAuth.signInWithEmailAndPassword(emailString, passwordString)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -87,7 +89,10 @@ public class MainFragment extends Fragment{
 
                         if (task.isSuccessful()) {
                             //success
-                            Toast.makeText(getActivity(),"Welcome Login OK",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "Welcome Login OK", Toast.LENGTH_SHORT).show();
+
+                            processMoveToService();
+
                         } else {
                             //not success
                             MyAlertDialog myAlertDialog = new MyAlertDialog(getActivity());
@@ -96,6 +101,22 @@ public class MainFragment extends Fragment{
                         }
                     }
                 });
+    }
+
+    private void processMoveToService() {
+
+        //find UID login
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+        String strUID = firebaseUser.getUid();
+        Log.d("26NovV3", "strUID = " + strUID); //test get id
+
+        //replace fragment and put vale
+        getActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.contentMainFragment,
+                        SeviceFragment.seviceInstance(strUID)).commit();
+
     }
 
     private void registerController() {

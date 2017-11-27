@@ -21,10 +21,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.hobbythai.android.firebasekul.MainActivity;
 import com.hobbythai.android.firebasekul.R;
 import com.hobbythai.android.firebasekul.utility.MyAlertDialog;
+import com.hobbythai.android.firebasekul.utility.UserModel;
 
 /**
  * Created by ks on 11/25/2017 AD.
@@ -38,7 +40,7 @@ public class RegisterFragment extends Fragment {
     private FirebaseAuth firebaseAuth;
     private ProgressDialog progressDialog;
     private FirebaseUser firebaseUser;
-    private FirebaseDatabase databaseReference;
+    private DatabaseReference databaseReference;
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -134,6 +136,15 @@ public class RegisterFragment extends Fragment {
         //get uid
         firebaseUser = firebaseAuth.getCurrentUser();
         showLog();
+
+        String strUserUID = firebaseUser.getUid();
+
+        //create field on database
+        databaseReference = FirebaseDatabase.getInstance()
+                .getReference().child("Users");
+
+        UserModel userModel = new UserModel(strUserUID, nameString); //getter setter
+        databaseReference.child(strUserUID).setValue(userModel);
 
     }
 
